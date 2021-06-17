@@ -4,9 +4,18 @@
   <div class="form-group">
     <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username" />
   </div>
+
   <div class="form-group">
-    <input type="password" class="form-control" name="password" [(ngModel)]="model.password" placeholder="Password" />
+    <label>Who is your fav User?</label>
+    <select class="form-control">
+      <option *ngFor="let user of usersFromHomeComponent" [value]="user.userName">{{user.userName}}</option>
+    </select>
   </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="username" [(ngModel)]="model.username" placeholder="Username" />
+  </div>
+
   <div class="form-group text-center">
     <button class="btn btn-success mr-2" type="submit">Register</button>
     <button class="btn btn-default mr-2" type="button" (click)="cancel()">Cancel</button>
