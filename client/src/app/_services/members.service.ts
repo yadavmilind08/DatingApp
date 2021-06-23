@@ -3,12 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
 
-const httpOptions = {
-  Headers: new HttpHeaders({
-    Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
-  })
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,10 +12,18 @@ export class MembersService {
   constructor(private http: HttpClient) { }
 
   getMemebers() {
-    return this.http.get<Member[]>(this.baseUrl + 'users', httpOptions)
+    return this.http.get<Member[]>(this.baseUrl + 'users', {
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))?.token
+      }
+    })
   }
 
   getMemeber(username: string) {
-    return this.http.get<Member>(this.baseUrl + 'users/' + username, httpOptions)
+    return this.http.get<Member>(this.baseUrl + 'users/' + username, {
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('user'))?.token
+      }
+    })
   }
 }
