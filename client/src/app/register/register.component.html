@@ -4,15 +4,29 @@
       type="text"
       class="form-control"
       [(ngModel)]="model.username"
+      name="username"
       placeholder="Username"
     />
     <label>Username</label>
   </div>
+
+  <div class="mb-3">
+    <label>Fav User?</label>
+    <select class="form-control">
+      @for (user of usersFromHomeComponent(); track $index) {
+      <option [value]="user.userName">
+        {{ user.userName }}
+      </option>
+      }
+    </select>
+  </div>
+
   <div class="mb-3 form-floating">
     <input
       type="password"
       class="form-control"
       [(ngModel)]="model.password"
+      name="password"
       placeholder="Password"
     />
     <label>Password</label>
