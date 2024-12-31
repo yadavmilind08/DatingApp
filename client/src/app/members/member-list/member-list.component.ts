@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { MembersService } from '../../_services/members.service';
 import { MemberCardComponent } from '../member-card/member-card.component';
 import { AccountService } from '../../_services/account.service';
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-member-list',
   standalone: true,
-  imports: [MemberCardComponent, PaginationModule, FormsModule],
+  imports: [MemberCardComponent, PaginationModule, FormsModule, ButtonsModule],
   templateUrl: './member-list.component.html',
   styleUrl: './member-list.component.css',
 })
